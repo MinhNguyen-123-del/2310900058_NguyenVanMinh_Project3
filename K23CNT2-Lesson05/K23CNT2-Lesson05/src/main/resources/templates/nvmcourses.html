@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/_layout :: nvmHead('Danh sách khóa học')"></head>
+<body>
+
+<!-- Header & Menu -->
+<div th:replace="fragments/_layout :: nvmHeader"></div>
+<div th:replace="fragments/_layout :: nvmMenu"></div>
+
+<section class="container mt-4">
+    <h3 class="text-center text-success mb-4">Danh sách khóa học Devmaster</h3>
+
+    <div class="row" th:each="course : ${nvmCourses}">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary" th:text="${course.nvmCourseName}"></h5>
+                    <p class="card-text" th:text="${course.nvmDescription}"></p>
+                    <p class="text-muted">Mã khóa học: <span th:text="${course.nvmCourseId}"></span></p>
+                    <p>Thời lượng: <span th:text="${course.nvmDuration}"></span> giờ</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Đăng ký ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:replace="fragments/_layout :: nvmFooter"></div>
+</body>
+</html>

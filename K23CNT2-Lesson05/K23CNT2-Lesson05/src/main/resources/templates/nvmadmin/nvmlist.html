@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/_nvmadminlayout :: nvmHead('Danh sách khóa học')"></head>
+<body>
+<div th:replace="fragments/_nvmadminlayout :: nvmHeader"></div>
+<div th:replace="fragments/_nvmadminlayout :: nvmMenu"></div>
+
+<section class="container mt-4">
+    <h3 class="text-center text-primary">Danh sách khóa học (NVM)</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Mã KH</th>
+            <th>Tên khóa học</th>
+            <th>Thời lượng</th>
+            <th>Mô tả</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${nvmCourses}">
+            <td th:text="${course.nvmCourseId}"></td>      <!-- ✅ sửa -->
+            <td th:text="${course.nvmCourseName}"></td>    <!-- ✅ sửa -->
+            <td th:text="${course.nvmDuration}"></td>
+            <td th:text="${course.nvmDescription}"></td>
+            <td class="text-center">
+                <a th:href="@{'/nvmadmin/nvmedit/' + ${course.nvmCourseId}}" class="btn btn-sm btn-warning">Sửa</a>
+                <a th:href="@{'/nvmadmin/nvmdelete/' + ${course.nvmCourseId}}"
+                   onclick="return confirm('Bạn có chắc muốn xóa khóa học này không?')"
+                   class="btn btn-sm btn-danger">Xóa</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<div th:replace="fragments/_nvmadminlayout :: nvmFooter"></div>
+</body>
+</html>

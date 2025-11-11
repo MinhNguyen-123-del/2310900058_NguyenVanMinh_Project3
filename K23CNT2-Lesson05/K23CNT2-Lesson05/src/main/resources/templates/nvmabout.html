@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+
+<!-- ✅ Gọi fragment phần <head> -->
+<head th:replace="fragments/_layout :: nvmHead('Devmaster :: Giới thiệu')"></head>
+
+<body>
+
+<!-- ✅ Header -->
+<div th:replace="fragments/_layout :: nvmHeader"></div>
+
+<!-- ✅ Menu -->
+<div th:replace="fragments/_layout :: nvmMenu"></div>
+
+<!-- ✅ Nội dung chính -->
+<section class="container my-4" style="min-height: 300px;">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="text-primary">Đây là trang giới thiệu</h1>
+            <hr/>
+            <h3>VIỆN CÔNG NGHỆ VÀ ĐÀO TẠO DEVMASTER</h3>
+            <p class="lead mt-3">
+                Đơn vị tiên phong trong đào tạo kỹ năng CNTT chuyên sâu,
+                với hơn 10 năm kinh nghiệm giảng dạy và chuyển giao công nghệ.
+            </p>
+            <p>
+                Devmaster cung cấp các khóa học về lập trình, phân tích hệ thống,
+                cơ sở dữ liệu, và các công nghệ mới như Spring Boot, ASP.NET Core, ReactJS, và nhiều hơn nữa.
+            </p>
+            <a href="https://devmaster.edu.vn" target="_blank" class="btn btn-primary mt-3 px-4">
+                Truy cập website chính thức
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ✅ Footer -->
+<div th:replace="fragments/_layout :: nvmFooter"></div>
+
+</body>
+</html>

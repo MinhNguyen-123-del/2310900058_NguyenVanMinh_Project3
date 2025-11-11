@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/_nvmadminlayout :: nvmHead('Thêm khóa học mới')"></head>
+<body>
+<div th:replace="fragments/_nvmadminlayout :: nvmHeader"></div>
+<div th:replace="fragments/_nvmadminlayout :: nvmMenu"></div>
+
+<section class="container mt-4">
+    <h3>Thêm khóa học mới (NVM)</h3>
+
+    <form th:action="@{/nvmadmin/nvmadd}" th:object="${nvmCourse}" method="post">
+        <div class="mb-3">
+            <label>Mã khóa học</label>
+            <input type="text" th:field="*{nvmCourseId}" class="form-control" required>  <!-- ✅ sửa -->
+        </div>
+        <div class="mb-3">
+            <label>Tên khóa học</label>
+            <input type="text" th:field="*{nvmCourseName}" class="form-control" required> <!-- ✅ sửa -->
+        </div>
+        <div class="mb-3">
+            <label>Thời lượng (giờ)</label>
+            <input type="number" th:field="*{nvmDuration}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Mô tả</label>
+            <textarea th:field="*{nvmDescription}" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-success">Lưu</button>
+        <a th:href="@{/nvmadmin/nvmlist}" class="btn btn-secondary">Trở lại</a>
+    </form>
+</section>
+
+<div th:replace="fragments/_nvmadminlayout :: nvmFooter"></div>
+</body>
+</html>

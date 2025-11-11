@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:replace="fragments/_layout :: nvmHead('Trang chủ')"></head>
+<body>
+
+<!-- ✅ Icon Bootstrap -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<!-- ✅ Header + Menu -->
+<div th:replace="fragments/_layout :: nvmHeader"></div>
+<div th:replace="fragments/_layout :: nvmMenu"></div>
+
+<!-- ✅ Nội dung chính -->
+<section class="container mt-5 text-center">
+    <div class="card shadow-lg border-0 p-4">
+        <h2 class="text-primary mb-3">
+            Chào mừng đến với khóa học <span class="text-danger">Spring Boot - Lesson05</span>
+        </h2>
+        <p class="text-secondary">
+            Đây là bài thực hành sử dụng <strong>Thymeleaf Fragments</strong> để tạo layout tái sử dụng.
+        </p>
+
+        <!-- 🔘 Nút chuyển sang layout quản trị -->
+        <a th:href="@{/nvmadmin/nvmlist}" class="btn btn-warning mt-4 px-4 py-2 fw-bold">
+            <i class="bi bi-gear-fill"></i> Chuyển sang trang Quản trị
+        </a>
+    </div>
+</section>
+
+<!-- ✅ Footer -->
+<div th:replace="fragments/_layout :: nvmFooter"></div>
+</body>
+</html>

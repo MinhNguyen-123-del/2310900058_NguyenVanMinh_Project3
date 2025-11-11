@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/_layout :: nvmHead('Nvm Profile')"></head>
+<body>
+<!-- header + menu -->
+<div th:replace="fragments/_layout :: nvmHeader"></div>
+<div th:replace="fragments/_layout :: nvmMenu"></div>
+
+<!-- nội dung chính -->
+<section class="container">
+    <h3 class="text-primary mb-3">Danh sách hồ sơ</h3>
+    <div class="row" th:each="info : ${nvmProfiles}">
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${info.nvmName}"></h5>
+                    <p class="card-text" th:text="${info.nvmDescription}"></p>
+                    <p>Email: <span th:text="${info.nvmEmail}"></span></p>
+                    <a th:href="${info.nvmWebsite}" th:text="${info.nvmWebsite}" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer -->
+<div th:replace="fragments/_layout :: nvmFooter"></div>
+</body>
+</html>
